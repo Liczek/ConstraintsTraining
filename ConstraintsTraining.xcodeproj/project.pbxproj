@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C84EB4A51F090CFB00F1B3EB /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84EB4A41F090CFB00F1B3EB /* ViewControllerExtension.swift */; };
 		C8F9797E1F081C7700AAC532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9797D1F081C7700AAC532 /* AppDelegate.swift */; };
 		C8F979801F081C7700AAC532 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9797F1F081C7700AAC532 /* ViewController.swift */; };
 		C8F979831F081C7700AAC532 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F979811F081C7700AAC532 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C84EB4A41F090CFB00F1B3EB /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		C8F9797A1F081C7700AAC532 /* ConstraintsTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConstraintsTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F9797D1F081C7700AAC532 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8F9797F1F081C7700AAC532 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				C8F9797D1F081C7700AAC532 /* AppDelegate.swift */,
 				C8F9797F1F081C7700AAC532 /* ViewController.swift */,
+				C84EB4A41F090CFB00F1B3EB /* ViewControllerExtension.swift */,
 				C8F979921F0820B100AAC532 /* StacksView.swift */,
 				C8F979941F08217800AAC532 /* CirclesView.swift */,
 				C8F979811F081C7700AAC532 /* Main.storyboard */,
@@ -148,6 +151,7 @@
 			files = (
 				C8F979951F08217800AAC532 /* CirclesView.swift in Sources */,
 				C8F979801F081C7700AAC532 /* ViewController.swift in Sources */,
+				C84EB4A51F090CFB00F1B3EB /* ViewControllerExtension.swift in Sources */,
 				C8F9797E1F081C7700AAC532 /* AppDelegate.swift in Sources */,
 				C8F979861F081C7700AAC532 /* ConstraintsTraining.xcdatamodeld in Sources */,
 				C8F979931F0820B200AAC532 /* StacksView.swift in Sources */,
@@ -314,6 +318,7 @@
 				C8F979911F081C7700AAC532 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
