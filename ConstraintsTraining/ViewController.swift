@@ -36,9 +36,11 @@ class ViewController: UIViewController {
         if traitCollection.horizontalSizeClass == .compact {
             NSLayoutConstraint.deactivate(compactConstraints)
             NSLayoutConstraint.activate(regularConstraints)
+            changingViewsForRegularTrait()
         } else {
             NSLayoutConstraint.deactivate(regularConstraints)
             NSLayoutConstraint.activate(compactConstraints)
+            changingViewsForCompactTrait()
         }
     }
     

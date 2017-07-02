@@ -33,6 +33,17 @@ extension ViewController {
         appText.backgroundColor = UIColor.white
     }
     
+    func changingViewsForCompactTrait() {
+        circles.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        appText.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+    }
+    
+    func changingViewsForRegularTrait() {
+        circles.backgroundColor = UIColor.gray.withAlphaComponent(1)
+        appText.backgroundColor = UIColor.white.withAlphaComponent(1)
+    }
+    
+       
     func addViews() {
         self.view.addSubview(bgd)
         self.view.addSubview(stacks)
