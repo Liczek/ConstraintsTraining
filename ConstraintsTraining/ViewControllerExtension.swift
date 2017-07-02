@@ -22,13 +22,14 @@ extension ViewController {
     }
     
     func setupViewsColors() {
+        view.backgroundColor = UIColor.black
         bgd.backgroundColor = UIColor.darkGray
-        stacks.backgroundColor = UIColor.clear
+        stacks.backgroundColor = UIColor.green.withAlphaComponent(0.4)
         circles.backgroundColor = UIColor.gray
         appText.backgroundColor = UIColor.white
     }
     
-    func loadPreparedViews() {
+    func addViews() {
         self.view.addSubview(bgd)
         self.view.addSubview(stacks)
         self.view.addSubview(circles)
@@ -37,7 +38,7 @@ extension ViewController {
     
     func setupViewsDataAndOptions() {
         bgd.image = UIImage(named: "background")
-        bgd.contentMode = .scaleAspectFill
+        bgd.contentMode = .scaleToFill
         
         appText.isEditable = false
         appText.isSelectable = false
