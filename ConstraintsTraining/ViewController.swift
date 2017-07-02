@@ -16,9 +16,8 @@ class ViewController: UIViewController {
     let circles = CirclesView()
     let appText = UITextView()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    var regularConstraints = [NSLayoutConstraint]()
+    var compactConstraints = [NSLayoutConstraint]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +28,18 @@ class ViewController: UIViewController {
         
         //setupViewsFrames()
         setupViewsConstraints()
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if traitCollection.horizontalSizeClass == .compact {
+            NSLayoutConstraint.deactivate(compactConstraints)
+            NSLayoutConstraint.activate(regularConstraints)
+        } else {
+            NSLayoutConstraint.deactivate(regularConstraints)
+            NSLayoutConstraint.activate(compactConstraints)
+        }
     }
     
     func setupViewsConstraints() {
@@ -42,7 +47,6 @@ class ViewController: UIViewController {
         bgd.translatesAutoresizingMaskIntoConstraints = false
         let bgdTop = bgd.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
         let bgdLeading = bgd.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        let bgdHeight = bgd.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.34)
         let bgdTrailing = bgd.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         stacks.translatesAutoresizingMaskIntoConstraints = false
@@ -52,23 +56,34 @@ class ViewController: UIViewController {
         let stacksTrailing = stacks.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         
         circles.translatesAutoresizingMaskIntoConstraints = false
-        let circlesTop = circles.topAnchor.constraint(equalTo: bgd.bottomAnchor)
+        let circlesTop = circles.topAnchor.constraint(equalTo: stacks.bottomAnchor)
         let circlesLeading = circles.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor)
-        let circlesTrailing = circles.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
-        let circlesHeight = circles.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33)
         
         appText.translatesAutoresizingMaskIntoConstraints = false
-        let appTextTop = appText.topAnchor.constraint(equalTo: circles.bottomAnchor)
-        let appTextLeading = appText.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor)
-        let appTextTrailing = appText.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor)
-        let appTextBottom  = appText.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -20)
+        let appTextBottom  = appText.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -10)
         
         NSLayoutConstraint.activate([
-            bgdTop, bgdLeading, bgdHeight, bgdTrailing,
+            bgdTop, bgdLeading, bgdTrailing,
             stacksTop, stacksHeight, stacksLeading, stacksTrailing,
-            circlesTop, circlesLeading, circlesTrailing, circlesHeight,
-            appTextTop, appTextLeading, appTextTrailing, appTextBottom
+            circlesTop, circlesLeading,
+            appTextBottom
             ])
+        
+        
+        regularConstraints.append(bgd.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.34))
+        regularConstraints.append(circles.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor))
+        regularConstraints.append(circles.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33))
+        regularConstraints.append(appText.topAnchor.constraint(equalTo: circles.bottomAnchor))
+        regularConstraints.append(appText.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor))
+        regularConstraints.append(appText.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor))
+        
+        
+        compactConstraints.append(bgd.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -10))
+        compactConstraints.append(circles.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor))
+        compactConstraints.append(circles.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -10))
+        compactConstraints.append(appText.leadingAnchor.constraint(equalTo: circles.trailingAnchor))
+        compactConstraints.append(appText.topAnchor.constraint(equalTo: stacks.bottomAnchor))
+        compactConstraints.append(appText.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor))
 
     }
 
