@@ -28,7 +28,7 @@ extension ViewController {
     func setupViewsColors() {
         view.backgroundColor = UIColor.black
         bgd.backgroundColor = UIColor.darkGray
-        stacks.backgroundColor = UIColor.green.withAlphaComponent(0.4)
+        stacks.backgroundColor = UIColor.clear
         circles.backgroundColor = UIColor.gray
         appText.backgroundColor = UIColor.white
     }

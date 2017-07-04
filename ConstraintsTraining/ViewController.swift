@@ -37,10 +37,12 @@ class ViewController: UIViewController {
             NSLayoutConstraint.deactivate(compactConstraints)
             NSLayoutConstraint.activate(regularConstraints)
             changingViewsForRegularTrait()
+            stacks.regular()
         } else {
             NSLayoutConstraint.deactivate(regularConstraints)
             NSLayoutConstraint.activate(compactConstraints)
             changingViewsForCompactTrait()
+            stacks.compact()
         }
     }
     
