@@ -91,6 +91,12 @@ class ViewController: UIViewController {
 
     }
 
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
+			self.appText.setContentOffset(CGPoint.zero, animated: true)
+		})
+		super.viewWillTransition(to: size, with: coordinator)
+	}
 
 }
 
